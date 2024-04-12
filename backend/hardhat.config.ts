@@ -7,7 +7,7 @@ import path from "path";
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 if (!SKIP_LOAD) {
-  const taskPaths = ["utils"];
+  const taskPaths = ["utils", "mock"];
   taskPaths.forEach((folder) => {
     const tasksPath = path.join(__dirname, "tasks", folder);
     fs.readdirSync(tasksPath)
@@ -20,6 +20,12 @@ if (!SKIP_LOAD) {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
+  networks: {
+    artio_testnet: {
+      url: 'https://artio.rpc.berachain.com/',
+      accounts: [process.env.PRIVATE_KEY!]
+    },
+  },
   etherscan: {
     apiKey: {
       artio_testnet: "verifyContract", 
@@ -34,12 +40,6 @@ const config: HardhatUserConfig = {
         }
       }
     ]
-  },
-  networks: {
-    artio_testnet: {
-      url: 'https://artio.rpc.berachain.com/',
-      accounts: [process.env.PRIVATE_KEY!]
-    },
   },
   sourcify: {
     enabled: true
