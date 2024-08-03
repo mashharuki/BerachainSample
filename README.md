@@ -66,3 +66,6 @@ cd backend
 4. [ベラチェーンとは何ですか?](https://www.gate.io/ja/learn/articles/what-is-berachain/315)
 5. [Berachain ってどんなチェーン？](https://note.com/viwashi_/n/ndda701e1605b)
 6. [プログラム取引に挑戦 🐻⛓Berachain トランザクションハンズオン 🙌](https://cosmosjapan.notion.site/Berachain-361cd7b5df824c1bb3bcdcd5721bfbd5)
+7. [Berachain DEX](https://bartio.bex.berachain.com/swap)
+8. [GitHub - BEX の ABI](https://github.com/berachain/doc-abis/tree/main/bex)
+9. [「コントラクトが公開されていないコードを読み、適切な戦略を取れることがエッジ」botter・mican 氏 3/3](https://burry.co.jp/articles/0xwagmican-3/)
