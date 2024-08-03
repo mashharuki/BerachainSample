@@ -65,3 +65,4 @@ cd backend
 3. [EVM 互換の新 L1 ブロックチェーン「Berachain」、SAFT で約 56 億円を調達](https://coinpost.jp/?p=453990)
 4. [ベラチェーンとは何ですか?](https://www.gate.io/ja/learn/articles/what-is-berachain/315)
 5. [Berachain ってどんなチェーン？](https://note.com/viwashi_/n/ndda701e1605b)
+6. [プログラム取引に挑戦 🐻⛓Berachain トランザクションハンズオン 🙌](https://cosmosjapan.notion.site/Berachain-361cd7b5df824c1bb3bcdcd5721bfbd5)
