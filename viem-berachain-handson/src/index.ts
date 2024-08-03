@@ -128,15 +128,26 @@ async function queryPrice(base: string, quote: string, poolIdx: number) {
  */
 async function executeMultiSwap(swapSteps: any, amount: bigint, minOut: number) {
   try {
-    // multiSwap関数を呼び出す
+    // approveメソッドを呼び出す。
     const txHash = await walletClient.writeContract({
+      address: HONEY,
+      abi: erc20Abi,
+      functionName: 'approve',
+      args: [CROC_QUERY_ADDRESS, amount],
+      value: BigInt(0),
+    });
+
+    console.log(`approve Transaction sent! TX hash: ${berachainTestnet.blockExplorers.default.url}tx/${txHash}`);
+
+    // multiSwap関数を呼び出す
+    const txHash2 = await walletClient.writeContract({
       address: BERA_CROC_MULTI_SWAP_ADDRESS,
       abi: multiSwapABI,
       functionName: 'multiSwap',
       args: [swapSteps, amount, minOut],
-      value: BigInt(0)
+      value: BigInt(0),
     });
-    console.log(`Transaction sent! TX hash: ${berachainTestnet.blockExplorers.default.url}tx/${txHash}`);
+    console.log(`multiSwap Transaction sent! TX hash: ${berachainTestnet.blockExplorers.default.url}tx/${txHash2}`);
   } catch (error) {
     console.error('Failed to execute multiSwap:', error);
   }
@@ -170,14 +181,14 @@ const main = async () => {
   const swapSteps = [
     {
       poolIdx: 36001,
-      base: HONEY,
-      quote: WBTC,
+      base: baseToken,
+      quote: quoteToken,
       isBuy: true,
     }
   ];
 
   // HONEYを0.1だけ売る
-  const amount = parseEther("0.01");
+  const amount = parseEther("2");
   const minOut = BigInt(0); 
   // トークンのSwapを実行する
   await executeMultiSwap(swapSteps, amount, Number(minOut));
